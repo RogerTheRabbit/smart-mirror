@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import './Time.css'
 
 class Timer extends Component {
     state = {
@@ -19,8 +20,8 @@ class Timer extends Component {
     render() {
         return(
             <div>
-                <h1>{this.state.date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: this.is24hour()})}</h1>
-                <h2>{this.state.date.toLocaleDateString()}</h2>
+                <p className={"time"}>{this.state.date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: this.is24hour()})}</p>
+                <p className={"date"}>{this.state.date.toLocaleDateString()}</p>
                 {this.callMe()}
             </div>
         )
