@@ -10,7 +10,7 @@ class Timer extends Component {
     callMe(){
         setInterval(()=>{
             this.setState({date: new Date()});
-        }, 1000);
+        }, 60000);
     }
 
     is24hour(){
