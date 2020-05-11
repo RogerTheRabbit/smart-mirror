@@ -13,6 +13,18 @@ const config = {
             properties: {
                 position: "footer",
             }
+        },
+        {
+            name: "Time",
+            properties: {
+                position: "footer",
+            }
+        },
+        {
+            name: "asdasd",
+            properties: {
+                position: "footer",
+            }
         }
     ]
 };
