@@ -1,12 +1,15 @@
 .time{
-    margin: 0px auto;
+    margin: auto;
+    width: auto;
     font-size: 32px;
     font-weight: bold;
+    text-align: center;
 }
 .date{
-    margin: 0px 25%;
-
+    margin: auto;
+    text-align: center;
 }
+
 .container{
     justify-items: center;
 }

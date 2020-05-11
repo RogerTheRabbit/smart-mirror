@@ -20,9 +20,9 @@ class Timer extends Component {
     render() {
         return(
             <div>
+                {this.callMe()}
                 <p className={"time"}>{this.state.date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: this.is24hour()})}</p>
                 <p className={"date"}>{this.state.date.toLocaleDateString()}</p>
-                {this.callMe()}
             </div>
         )
     }

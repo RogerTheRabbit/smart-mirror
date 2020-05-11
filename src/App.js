@@ -3,7 +3,8 @@ import './App.css';
 import config from './config.js';
 import TemplateModule from './modules/Template/TemplateModule.js'
 import BasicTime from './modules/BasicTime/BasicTime.js';
-import TimeModule from './modules/Time/Time.js';
+import Time from './modules/Time/Time.js';
+import RandomFact from "./modules/RandomFact/RandomFact";
 
 function App() {
     console.log(config);
@@ -16,15 +17,12 @@ function App() {
             </div>
             <div className={"header"}>
                 header
-                <br/><br/><br/>
-                <BasicTime />
-                <br/><br/><br/><br/>
-                <TimeModule/>
-                <TemplateModule />
+                <Time/>
+
             </div>
             <div className={"middle"}>
                 middle
-                <TemplateModule />
+                <RandomFact />
             </div>
             <div className={"sidebarRight"}>
                 sidebarRight
