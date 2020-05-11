@@ -1,23 +1,39 @@
-import React from 'react';
+import React, {lazy, useEffect, useState} from 'react';
+import shortid from 'shortid';
 import './App.css';
 import config from './config.js';
-import TemplateModule from './modules/TemplateModule/TemplateModule.js'
+// import TemplateModule from './modules/TemplateModule/TemplateModule.js'
 import templatemoduletwo from './modules/templatemoduletwo/templatemoduletwo.js'
 import BasicTime from './modules/BasicTime/BasicTime.js';
 import TimeModule from './modules/Time/Time.js';
 
+let subredditsToShow = {}
+
 function App() {
+
+
     importTemplate(config.template);
 
-    // Object.keys(config.areas).forEach(key) {
-    //     importModule()
-    // }
+    const [views, setViews] = useState([]);
 
-    console.log(buildModules(config));
+    useEffect(() => {
+        async function loadViews() {
+            const View = await importView("subreddit");
+            let componentPromises = <View key={shortid.generate()} />;
+
+            Promise.all([componentPromises]).then(setViews);
+        }
+
+        loadViews();
+    }, []);
 
     return (
+        <React.Suspense fallback='Loading views...'>
+            <div className='container'>{views}</div>
+        </React.Suspense>
         // buildModules(config)
-        React.createElement('templatemoduletwo', null, null)
+        // test()
+        // React.createElement('TemplateModule', null, null)
         // <div className={"container"}>
         //     <div className={"sidebarLeft"}>
         //         sidebarLeft
@@ -55,35 +71,29 @@ async function importTemplate(template) {
     }
 }
 
-async function importModule(module) {
-    try {
-        let ccc = await import(`./modules/${module}/${module}.js`);
-        console.log("HERERERE", ccc);
-    } catch (error) {
-        console.error("Failed to load module:", error);
-    }
-}
 
-function buildModules(config) {
-    let curModule;
 
-    // let test = `<div className="container">`
-    let children = [];
+// async function test() {
+//     let toReturn
+//     await import("./modules/Time/Time.js").then (Time => {
+//         toReturn = <Time key={"test"}/>;
+//     })
+//     return toReturn;
+// }
 
-    for(let idx = 0; idx<config.modules.length; idx++) {
-        curModule = config.modules[idx];
-        importModule(curModule.name);
-        // TODO: Replace null with children: https://reactjs.org/docs/react-without-jsx.html
-        
-        // const m = require(`./modules/${curModule.name}/${curModule.name}.js`).default;
-        children.push(document.createElement('div', null, null));
+// useEffect(() => {
+//     effect
+//     return () => {
+//         cleanup
+//     }
+// }, [config])
 
-        // test += `<${curModule.name} className="${curModule.position}" properties="${curModule.properties}" />`
-    }
-
-    // test += "</div>"
-
-    return React.createElement("div", {className: "container"}, children);
-}
+const importView = module =>
+    lazy(() =>
+        import(`./modules/${module}/${module}.js`)
+            .catch(() => 
+                import(`./modules/Time/Time.js`)
+            )
+    );
 
 export default App;
