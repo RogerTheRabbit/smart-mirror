@@ -1,0 +1,14 @@
+
+#date {
+    margin: 0;
+}
+
+#time {
+    margin: 0;
+}
+
+.clock {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+}
