@@ -4,27 +4,23 @@ const config = {
     modules: [
         {
             name: "TemplateModule",
-            properties: {
-                position: "header",
-            }
+            position: "header",
         },
         {
             name: "BasicTime",
+            position: "leftSidebar",
             properties: {
-                position: "footer",
+                showSeconds: true,
+                user23hTime: true
             }
         },
         {
             name: "Time",
-            properties: {
-                position: "footer",
-            }
+            position: "footer",
         },
         {
             name: "asdasd",
-            properties: {
-                position: "footer",
-            }
+            position: "footer",
         }
     ]
 };

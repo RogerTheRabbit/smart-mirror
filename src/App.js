@@ -13,7 +13,9 @@ function App() {
         async function loadModules() {
             const componentPromises  = config.modules.map(async module => {
                 const Module = importModule(module.name);
-                return <Module key={shortid.generate()}/>; 
+                return  <div className={module.position} key={shortid.generate()}>
+                            <Module {...module.properties} key={shortid.generate()}/>
+                        </div>;
             });
 
             Promise.all(componentPromises).then(setModules);
