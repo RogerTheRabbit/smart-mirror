@@ -1,6 +1,8 @@
 
 import React, {Component} from 'react';
 
+
+
 class RandomFact extends Component{
 
     state = {
@@ -12,20 +14,24 @@ class RandomFact extends Component{
         const url = 'https://uselessfacts.jsph.pl/random.json?language=en';
         Http.open('GET', url, true);
         Http.send();
+        let obj = this;
 
         Http.onreadystatechange = function (){
             if(this.readyState === 4 && this.status === 200){
                 let response = JSON.parse(Http.responseText);
-                this.fact = response.text;
-                console.log(this.fact);
+                obj.setState( {fact: response.text});
+                console.log(obj.fact);
             }
         };
+    }
+
+    componentDidMount() {
+        this.requestFact();
     }
 
     render(){
         return (
             <div>
-                {this.requestFact()}
                 <p>{this.state.fact}</p>
             </div>
         );
