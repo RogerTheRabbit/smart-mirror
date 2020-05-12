@@ -18,12 +18,14 @@ class Grid extends Component {
         newState.rows = this.props.rows;
         newState.cols = this.props.cols;
 
+        newState.contents = this.createSquares();
+
         this.props.children.forEach((module) => {
             console.log(module);
             const Module = importModule(module.name);
             const element = <Module {...module.properties} key={shortid.generate()}/>
 
-            newState.contents.push(element);
+            newState.contents[module.position] = element;
 
         });
         this.setState(newState);
@@ -31,14 +33,14 @@ class Grid extends Component {
     }
 
     renderSquare(i) {
-        return <div key={shortid.generate()} id={i}>{this.state.contents[i]}</div>;
+        return <div key={shortid.generate()} id={i}></div>;
     }
 
     createSquares() {
         let tiles = [];
-        for(let i = 0; i < 3; i++){
-            for(let j = 0; j < 3; j++){
-                tiles.push(this.renderSquare(3*i+j));
+        for(let i = 0; i < this.state.rows; i++){
+            for(let j = 0; j < this.state.cols; j++){
+                tiles.push(this.renderSquare(this.state.cols*i+j));
             }
         }
         return tiles;
@@ -48,7 +50,7 @@ class Grid extends Component {
         console.log(this.props)
         return (
             <div id="container">
-                {this.createSquares()}
+                {this.state.contents}
             </div>
         );
     }
