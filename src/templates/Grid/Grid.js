@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import "./Grid.css";
+import shortid from 'shortid';
 
 class Grid extends Component {
     state = {
-        rows: 0,
-        cols: 0
+        rows: 3,
+        cols: 3
     };
 
     componentDidMount() {
@@ -17,7 +18,7 @@ class Grid extends Component {
     }
 
     renderSquare(i) {
-        return <div id={i}></div>;
+        return <div key={shortid.generate()} id={i}>{i}</div>;
     }
 
     createSquares() {
@@ -27,14 +28,15 @@ class Grid extends Component {
             for(let j = 0; j < 3; j++){
                 squares.push(this.renderSquare(3*i+j));
             }
-            rows.push(<div>{squares}</div>);
+        rows.push(<div key={shortid.generate()}>{squares}</div>);
         }
         return rows;
     }
 
     render() {
+        console.log(this.props)
         return (
-            <div>
+            <div id="container">
                 {this.createSquares()}
             </div>
         );

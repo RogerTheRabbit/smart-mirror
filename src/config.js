@@ -1,6 +1,12 @@
 
 const config = {
-    template: "BorderTemplate",
+    template: {
+        name: "Grid",
+        properties: {
+            rows: 2,
+            cols: 2,
+        }
+    },
     modules: [
         {
             name: "TemplateModule",

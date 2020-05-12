@@ -8,8 +8,8 @@ function App() {
 
     useEffect(() => {
         console.log("Template changed");
-        const Template = importTemplate(config.template);
-        setTemplate(<Template>{config.modules}</Template>);
+        const Template = importTemplate(config.template.name);
+        setTemplate(<Template {...config.template.properties}>{config.modules}</Template>);
     }, [])
 
     function importTemplate(template) {
