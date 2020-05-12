@@ -1,6 +1,6 @@
 
 const config = {
-    template: "borderTemplate.css",
+    template: "BorderTemplate.css",
     modules: [
         {
             name: "TemplateModule",
@@ -8,7 +8,7 @@ const config = {
         },
         {
             name: "BasicTime",
-            position: "leftSidebar",
+            position: "sidebarLeft",
             properties: {
                 showSeconds: true,
                 user23hTime: true
@@ -20,7 +20,7 @@ const config = {
         },
         {
             name: "asdasd",
-            position: "footer",
+            position: "sidebarRight",
         }
     ]
 };
