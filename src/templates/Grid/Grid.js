@@ -8,7 +8,7 @@ class Grid extends Component {
     };
 
     componentDidMount() {
-        this.state.rows = this.props.rows;
+        this.setState({rows: this.props.rows});
         this.state.cols = this.props.cols;
         document.documentElement.style.setProperty("--rowNum", this.state.rows);
         document.documentElement.style.setProperty("--colNum", this.state.cols);
