@@ -10,7 +10,7 @@ class BorderTemplate extends Component {
         middle: [],
         sidebarRight: [],
         footer: [],
-    }
+    };
 
     componentDidMount() {
 
@@ -23,22 +23,22 @@ class BorderTemplate extends Component {
     
             switch (module.position) {
                 case "header":
-                    newState.header.push(element)
+                    newState.header.push(element);
                     break;
                 case "sidebarLeft":
-                    newState.sidebarLeft.push(element)
+                    newState.sidebarLeft.push(element);
                     break;
                 case "middle":
-                    newState.middle.push(element)
+                    newState.middle.push(element);
                     break;
                 case "sidebarRight":
-                    newState.sidebarRight.push(element)
+                    newState.sidebarRight.push(element);
                     break;
                 case "footer":
-                    newState.footer.push(element)
+                    newState.footer.push(element);
                     break;
                 default:
-                    newState.header.push(element)
+                    newState.header.push(element);
                     break;
             }
         });

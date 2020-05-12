@@ -1,6 +1,12 @@
 
 const config = {
-    template: "Grid",
+    template: {
+        name: "Grid",
+        properties: {
+            rows: 4,
+            cols: 4,
+        }
+    },
     modules: [
         {
             name: "TemplateModule",

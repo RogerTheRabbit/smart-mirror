@@ -1,6 +1,6 @@
 import React, {lazy, useEffect, useState} from 'react';
 import './App.css';
-import config from './config.js';
+import config from './gridConfig.js';
 
 function App() {
 
