@@ -4,7 +4,7 @@ import './Time.css'
 class Timer extends Component {
     state = {
         date: new Date(),
-        military: true
+        military: true,
     };
 
     callMe(){

@@ -1,0 +1,11 @@
+
+.container {
+    --rowNum: 3;
+    --colNum: 3;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: repeat(var(--rowNum), auto);
+    grid-template-columns: repeat(var(--colNum), auto);
+    align-content: stretch;
+}
