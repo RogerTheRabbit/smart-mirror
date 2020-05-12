@@ -4,12 +4,12 @@ import "./BorderTemplate.css";
 class BorderTemplate extends Component {
     render() {
         return (
-            <div id={"template"}>
-                <div id={"header"}></div>
-                <div id={"sidebarLeft"}></div>
-                <div id={"middle"}></div>
-                <div id={"sidebarRight"}></div>
-                <div id={"footer"}></div>
+            <div id={"container"}>
+                <div id={"header"}>Header</div>
+                <div id={"sidebarLeft"}>Sidebar Left</div>
+                <div id={"middle"}>Middle</div>
+                <div id={"sidebarRight"}>Sidebar Right</div>
+                <div id={"footer"}>Footer</div>
             </div>
         );
     }

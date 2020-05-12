@@ -1,29 +1,29 @@
-.header {
+#header {
     grid-area: header;
     justify-self: center;
     align-self: start;
 }
-.middle {
+#middle {
     grid-area: middle;
     place-self: center;
 }
-.sidebarLeft {
+#sidebarLeft {
     grid-area: sidebarLeft;
     justify-self: start;
     align-self: center;
 }
-.sidebarRight {
+#sidebarRight {
     grid-area: sidebarRight;
     justify-self: end;
     align-self: center;
 }
-.footer {
+#footer {
     grid-area: footer;
     justify-self: center;
     align-self: end;
 }
 
-.container {
+#container {
 
     width: 100vw;
     height: 100vh;

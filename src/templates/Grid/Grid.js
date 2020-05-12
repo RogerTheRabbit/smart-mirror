@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import "./BorderTemplate.css";
+import "./Grid.css";
 
 class Grid extends Component {
     state = {
