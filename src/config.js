@@ -10,7 +10,7 @@ const config = {
     modules: [
         {
             name: "TemplateModule",
-            position: "header",
+            position: "sidebarRight",
         },
         {
             name: "BasicTime",
@@ -24,13 +24,13 @@ const config = {
             name: "Time",
             position: "footer",
         },
-        // {
-        //     name: "NewsHeadlines",
-        //     position: "sidebarRight",
-        // },
+        {
+            name: "NewsHeadlines",
+            position: "middle",
+        },
         {
             name: "RandomFact",
-            position: "sidebarRight",
+            position: "header",
         }
     ]
 };
