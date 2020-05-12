@@ -1,49 +1,30 @@
 import React, {lazy, useEffect, useState} from 'react';
-import shortid from 'shortid';
 import './App.css';
 import config from './config.js';
 
 function App() {
 
-    importTemplate(config.template);
-
-    const [modules, setModules] = useState([]);
+    const [template, setTemplate] = useState([]);
 
     useEffect(() => {
-        async function loadModules() {
-            const componentPromises  = config.modules.map(async module => {
-                const Module = importModule(module.name);
-                return  <div className={module.position} key={shortid.generate()}>
-                            <Module {...module.properties} key={shortid.generate()}/>
-                        </div>;
-            });
+        console.log("Template changed");
+        const Template = importTemplate(config.template);
+        setTemplate(<Template>{config.modules}</Template>);
+    }, [])
 
-            Promise.all(componentPromises).then(setModules);
-        }
-        loadModules();
-    }, []);
-
+    function importTemplate(template) {
+        return lazy(() =>
+            import(`./templates/${template}/${template}.js`)
+                .catch((error) => 
+                    // TODO: Import default template or something.
+                    console.error("Template failed to load", error)
+                )
+        );
+    }
     return (
         <React.Suspense fallback='Loading Modules...'>
-            <div className='container'>{modules}</div>
+            {template}
         </React.Suspense>
-    );
-}
-
-async function importTemplate(template) {
-    try {
-        await import(`./templates/${template}/${template}.css`);
-    } catch (error) {
-        console.error("Failed to load template:", error);
-    }
-}
-
-function importModule(module) {
-    return lazy(() =>
-        import(`./modules/${module}/${module}.js`)
-            .catch(() => 
-                import(`./modules/NullModule.js`)
-            )
     );
 }
 
