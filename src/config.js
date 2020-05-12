@@ -19,7 +19,7 @@ const config = {
             position: "footer",
         },
         // {
-        //     name: "asdasd",
+        //     name: "NewsHeadlines",
         //     position: "sidebarRight",
         // },
         {

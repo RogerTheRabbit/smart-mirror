@@ -20,7 +20,6 @@ class RandomFact extends Component{
             if(this.readyState === 4 && this.status === 200){
                 let response = JSON.parse(Http.responseText);
                 obj.setState( {fact: response.text});
-                console.log(obj.fact);
             }
         };
     }
