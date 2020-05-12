@@ -1,6 +1,6 @@
 
 const config = {
-    template: "BorderTemplate.css",
+    template: "BorderTemplate",
     modules: [
         {
             name: "TemplateModule",

@@ -32,7 +32,7 @@ function App() {
 
 async function importTemplate(template) {
     try {
-        await import(`./templates/${template}`);
+        await import(`./templates/${template}/${template}.css`);
     } catch (error) {
         console.error("Failed to load template:", error);
     }
