@@ -18,8 +18,12 @@ const config = {
             name: "Time",
             position: "footer",
         },
+        // {
+        //     name: "asdasd",
+        //     position: "sidebarRight",
+        // },
         {
-            name: "asdasd",
+            name: "RandomFact",
             position: "sidebarRight",
         }
     ]

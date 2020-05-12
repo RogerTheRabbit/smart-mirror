@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-
+import "./RandomFact.css";
 
 
 class RandomFact extends Component{
@@ -25,14 +25,22 @@ class RandomFact extends Component{
         };
     }
 
+    callMe(){
+        setInterval(()=>{
+            this.requestFact();
+        }, 3600 * 1000);
+    }
+
+
     componentDidMount() {
         this.requestFact();
+        this.callMe();
     }
 
     render(){
         return (
             <div>
-                <p>{this.state.fact}</p>
+                <p className={"fact"}>{this.state.fact}</p>
             </div>
         );
     }
