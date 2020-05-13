@@ -10,7 +10,7 @@ function App() {
         console.log("Template changed");
         const Template = importTemplate(config.template.name);
         setTemplate(<Template {...config.template.properties}>{config.modules}</Template>);
-    }, [])
+    }, []);
 
     function importTemplate(template) {
         return lazy(() =>

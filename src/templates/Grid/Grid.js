@@ -1,6 +1,7 @@
 import React, {Component, lazy} from 'react';
 import "./Grid.css";
 import shortid from 'shortid';
+import Tile from "./Tile";
 
 class Grid extends Component {
     state = {
@@ -21,19 +22,21 @@ class Grid extends Component {
         newState.contents = this.createSquares();
 
         this.props.children.forEach((module) => {
-            console.log(module);
             const Module = importModule(module.name);
-            const element = <Module {...module.properties} key={shortid.generate()}/>
-
-            newState.contents[module.position] = element;
-
+            const element = <Module {...module.properties} key={shortid.generate()}/>;
+            console.log(element);
+            console.log(newState.contents[module.position]);
+            const moduleArr = [];
+            moduleArr.push(element);
+            newState.contents[module.position] = <Tile id={module.position} key={shortid.generate()}>{moduleArr}</Tile>
         });
+
         this.setState(newState);
-        console.log(this.state);
+        //console.log(this.state);
     }
 
     renderSquare(i) {
-        return <div key={shortid.generate()} id={i}></div>;
+        return <Tile id={i} key={shortid.generate()}/>;
     }
 
     createSquares() {
@@ -47,9 +50,9 @@ class Grid extends Component {
     }
 
     render() {
-        console.log(this.props)
+        //console.log(this.props);
         return (
-            <div id="container">
+            <div id="container" >
                 {this.state.contents}
             </div>
         );
